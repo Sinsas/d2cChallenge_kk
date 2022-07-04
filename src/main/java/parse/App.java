@@ -1,6 +1,5 @@
 package parse;
 
-import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,14 +11,11 @@ public class App {
 		challengeStrings.add("Sehr geehrte Damen Herren, wir würden gern am 9.April 9:45 Uhr mit sechs Leuten zum Brunch kommen, Mit freundlichen Grüßen Maria Meier");
 		challengeStrings.add("Guten Tag, einen Tisch für 8 Mann am 1.5. 9 Uhr abends, Gruß Franz Schulze");
 		
-		
-		
-		try {
-			System.in.read();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		for (String string : challengeStrings) {
+			String parsedString = ChallengeParser.parseChallengeString(string);
+			System.out.println(string + "  ->  " + parsedString);
 		}
+		
 	}
 
 }

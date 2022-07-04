@@ -1,5 +1,10 @@
 package parse;
 
+/**
+ * Holds the data of the reservation
+ * @author kkolodziej
+ *
+ */
 public class Reservation {
 	private String name;
 	private String date;
@@ -7,14 +12,6 @@ public class Reservation {
 	private int numberOfPersons;
 	
 	public Reservation() {}
-
-	public Reservation(String name, String date, String time, int numberOfPersons) {
-		super();
-		this.name = name;
-		this.date = date;
-		this.time = time;
-		this.numberOfPersons = numberOfPersons;
-	}
 
 	public String getName() {
 		return name;
@@ -39,6 +36,11 @@ public class Reservation {
 	public void setDate(String date) {
 		this.date = date;
 	}
+	
+	public void setDate(int day, int month) {
+		String dateSeparator = ".";
+		this.setDate(String.format("%02d", day) + dateSeparator + String.format("%02d", month) + dateSeparator);
+	}
 
 	public void setTime(String time) {
 		this.time = time;
@@ -47,6 +49,13 @@ public class Reservation {
 	public void setNumberOfPersons(int numberOfPersons) {
 		this.numberOfPersons = numberOfPersons;
 	}
+
+	@Override
+	public String toString() {
+		return "(" + name + ", " + date + ", " + time + ", " + numberOfPersons + ")";
+	}
+	
+	
 	
 	
 }
